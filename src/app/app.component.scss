@@ -1,5 +1,4 @@
 .grid {
-  background-color: blue;
   height: calc(100% - var(--navbar-height));
   padding: 5px;
   margin: 0 var(--layout-margin-xl);
@@ -12,27 +11,24 @@
   gap: var(--layout-gap);
 
   &__header {
-    background-color: beige;
     grid-area: header;
     padding: var(--layout-padding-lg) 0;
   }
 
   &__cart {
-    background-color: beige;
     grid-area: cart;
   }
 
   &__filter {
-    background-color: beige;
     grid-area: filter;
     display: flex;
     flex-direction: column;
   }
 
   &__list {
-    background-color: red;
     grid-area: list;
     overflow-y: auto;
+    padding: var(--layout-padding-sm)
   }
 }
 

@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core'
+import { Component, inject, Input } from '@angular/core'
+import { CartService } from 'services/cart.service'
 import { IVehicle } from 'types/vehicle'
 
 @Component({
@@ -8,4 +9,10 @@ import { IVehicle } from 'types/vehicle'
 })
 export class VehicleCardComponent {
   @Input() vehicle!: IVehicle
+
+  cartService = inject(CartService)
+
+  addToCart(vehicle: IVehicle) {
+    this.cartService.addVehicleToCart(vehicle)
+  }
 }

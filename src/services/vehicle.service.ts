@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { collection, collectionData, CollectionReference, Firestore, query, where } from '@angular/fire/firestore';
-import { Observable, shareReplay, switchMap, tap } from 'rxjs';
+import { Observable, shareReplay, switchMap } from 'rxjs';
 import { IVehicle, IVehicleFilter } from 'types/vehicle';
 
 @Injectable({
@@ -12,7 +12,6 @@ export class VehicleService {
   vehicleCollectionData$ = collectionData<IVehicle>(
     this.vehiclesCollection, { idField: 'id' }
   ).pipe(
-      tap(console.log),
       shareReplay(),
     );
 

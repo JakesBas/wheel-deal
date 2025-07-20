@@ -13,3 +13,13 @@ export interface IVehicleFilter {
   priceRangeLow: number | null
   priceRangeHigh: number | null
 }
+
+export interface ICart {
+  item: ICartItem[]
+}
+
+export interface ICartItem {
+  manufacturer: string
+  model: string
+  quantity: number
+}
