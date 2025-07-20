@@ -9,6 +9,9 @@
         <span>{{ item.make }} {{ item.model }}</span>
         <button mat-flat-button color="warn"(click)="removeFromCart(item)">&#120;</button>
       </div>
+      <div *ngIf="(cart$ | async)?.length === 0">
+        No items in cart
+      </div>
     </section>
   </mat-card-content>
 </mat-card>

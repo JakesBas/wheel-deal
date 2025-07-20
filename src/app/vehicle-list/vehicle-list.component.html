@@ -1,3 +1,7 @@
 <ng-container *ngFor="let vehicle of vehicles$ | async; trackBy: trackByVehicleId">
   <app-vehicle-card [vehicle]="vehicle"></app-vehicle-card>
 </ng-container>
+
+<ng-container *ngIf="(vehicles$ |async)?.length === 0">
+  No items matching search criteria
+</ng-container>

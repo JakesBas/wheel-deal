@@ -18,14 +18,14 @@
   <mat-form-field appearance="fill">
     <mat-label>Price Range (from)</mat-label>
     <mat-select formControlName="priceRangeLow">
-      <mat-option *ngFor="let price of priceRangeLowOptions" [value]="price">{{ price }}</mat-option>
+      <mat-option *ngFor="let price of priceRangeLowOptions" [value]="price">{{ price | currency : 'ZAR' : 'symbol-narrow' }}</mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Price Range (to)</mat-label>
     <mat-select formControlName="priceRangeHigh">
-      <mat-option *ngFor="let price of priceRangeHighOptions" [value]="price">{{ price }}</mat-option>
+      <mat-option *ngFor="let price of priceRangeHighOptions" [value]="price">{{ price | currency : 'ZAR' : 'symbol-narrow' }}</mat-option>
     </mat-select>
   </mat-form-field>
 </form>

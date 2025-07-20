@@ -6,11 +6,11 @@
       class="vehicle-card__image"
     >
     <section class="vehicle-card__info">
-      <div>Price: {{ vehicle.price }}</div>
+      <div>Price: {{ vehicle.price | currency : 'ZAR' : 'symbol-narrow' }}</div>
       <div>Make: {{ vehicle.make }}</div>
       <div>Model: {{ vehicle.model }}</div>
       <div style="display: flex; justify-content: space-between;">
-        <span>Body: {{ vehicle.body }}</span>
+        <span>Body: {{ vehicle.body | titlecase}}</span>
         <button mat-raised-button color="primary" (click)="addToCart(vehicle)">Add to cart</button>
       </div>
     </section>
