@@ -1,19 +1,11 @@
 # WheelDeal
-
 A simple vehicle listing SPA built with Angular 14, Angular Material 14 & AngularFire 7.4 as part of a technical assessment.
 
-## Tools
-
-- A
-
 ## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `npm run dev` to serve the application on `http://localhost:4200`. The application will automatically reload if you change any of the source files.
 
 ## Build
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/wheel-deal` directory.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Firebase hosting
+Run `npm run deploy` to deploy the application to firebase hosting. Application can be accessed on `http://wheel-deal-cca90.web.app`.
