@@ -17,6 +17,7 @@
 
   &__cart {
     grid-area: cart;
+    margin-top: var(--layout-margin);
   }
 
   &__filter {

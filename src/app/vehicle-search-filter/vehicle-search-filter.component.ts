@@ -70,4 +70,13 @@ export class VehicleSearchFilterComponent implements OnInit {
 
     return priceOptions
   }
+
+  resetForm() {
+    this.searchFilterForm.reset({
+      manufacturer: 'any',
+      bodyStyle: 'any',
+      priceRangeLow: 0,
+      priceRangeHigh: 10_000_000,
+    })
+  }
 }
