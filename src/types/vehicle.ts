@@ -10,4 +10,6 @@ export interface IVehicle {
 export interface IVehicleFilter {
   manufacturer: string | null
   bodyStyle: string | null
+  priceRangeLow: number | null
+  priceRangeHigh: number | null
 }

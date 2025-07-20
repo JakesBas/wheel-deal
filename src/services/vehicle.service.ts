@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { collection, collectionData, CollectionReference, Firestore, query, where } from '@angular/fire/firestore';
-import { Observable, switchMap, tap } from 'rxjs';
+import { Observable, shareReplay, switchMap, tap } from 'rxjs';
 import { IVehicle, IVehicleFilter } from 'types/vehicle';
 
 @Injectable({
@@ -9,18 +9,23 @@ import { IVehicle, IVehicleFilter } from 'types/vehicle';
 export class VehicleService {
   private firestore: Firestore = inject(Firestore);
   vehiclesCollection = collection(this.firestore, 'vehicles') as CollectionReference<IVehicle>;
+  vehicleCollectionData$ = collectionData<IVehicle>(
+    this.vehiclesCollection, { idField: 'id' }
+  ).pipe(
+      tap(console.log),
+      shareReplay(),
+    );
+
   filter$: Observable<Partial<IVehicleFilter>> | undefined
 
   getVehicles$(): Observable<IVehicle[]> {
-    return collectionData<IVehicle>(this.vehiclesCollection, { idField: 'id' }).pipe(
-      tap(console.log)
-    );
+    return this.vehicleCollectionData$.pipe(
+      shareReplay()
+    )
   }
 
-  // Observable<IVehicle[]>
   getFilteredVehicles$(): Observable<IVehicle[]> | undefined  {
     return this.filter$?.pipe(
-      tap((filter) => console.log(`filter values: ${filter.bodyStyle}`)),
       switchMap((filter) => {
         const constraints = []
 
@@ -30,6 +35,14 @@ export class VehicleService {
 
         if (filter.bodyStyle != 'any') {
           constraints.push(where('body', '==', filter.bodyStyle))
+        }
+
+        if (filter.priceRangeLow) {
+          constraints.push(where('price', '>=', filter.priceRangeLow))
+        }
+
+        if (filter.priceRangeHigh) {
+          constraints.push(where('price', '<=', filter.priceRangeHigh))
         }
 
         const vehiclesQuery = query(this.vehiclesCollection, ...constraints)

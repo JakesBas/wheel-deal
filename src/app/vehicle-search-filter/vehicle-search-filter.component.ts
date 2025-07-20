@@ -14,12 +14,14 @@ export class VehicleSearchFilterComponent implements OnInit {
   manufacturers$: Observable<string[]> | undefined
   bodyStyles$: Observable<string[]> | undefined
   selectedManufacturer = new FormControl('any', [Validators.required])
+  priceRangeLowOptions = this.getPriceOptions()
+  priceRangeHighOptions = this.getPriceOptions().reverse()
 
   searchFilterForm = this.fb.group({
     manufacturer: ['any', Validators.required],
     bodyStyle: ['any', Validators.required],
-    // priceRangeLow: [0, Validators.required],
-    // priceRangeHigh: [0, Validators.required]
+    priceRangeLow: [0, Validators.required],
+    priceRangeHigh: [10_000_000, Validators.required]
   })
 
   ngOnInit(): void {
@@ -56,5 +58,16 @@ export class VehicleSearchFilterComponent implements OnInit {
 
   trackByBodyStyle(index: number, bodyStyle: string) {
     return bodyStyle
+  }
+
+  getPriceOptions(): number[] {
+    const maxPrice = 10_000_000
+    const priceOptions = []
+
+    for (let i = 0; i <= maxPrice; i += 100_000) {
+      priceOptions.push(i)
+    }
+
+    return priceOptions
   }
 }
