@@ -6,3 +6,8 @@ export interface IVehicle {
   body: string;
   imageUrl: string;
 }
+
+export interface IVehicleFilter {
+  manufacturer: string | null
+  bodyStyle: string | null
+}

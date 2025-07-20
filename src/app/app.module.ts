@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ReactiveFormsModule } from '@angular/forms';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app'
 import { getFirestore, provideFirestore } from '@angular/fire/firestore'
 import { environment } from "@env/environment"
@@ -26,8 +27,9 @@ import { CartComponent } from './cart/cart.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MatToolbarModule,
-    MatInputModule,
+    MatSelectModule,
     MatCardModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => getFirestore())

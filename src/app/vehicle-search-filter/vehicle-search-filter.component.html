@@ -1,3 +1,36 @@
-<form>
-  <div>Form</div>
+<form [formGroup]="searchFilterForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Manufacturer</mat-label>
+    <mat-select formControlName="manufacturer">
+      <mat-option value="any">Any</mat-option>
+      <mat-option *ngFor="let manufacturer of manufacturers$ | async; trackBy: trackByManufacturer" [value]="manufacturer">{{ manufacturer }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Body Style</mat-label>
+    <mat-select formControlName="bodyStyle">
+      <mat-option value="any">Any</mat-option>
+      <mat-option *ngFor="let bodyStyle of bodyStyles$ | async; trackBy: trackByBodyStyle" [value]="bodyStyle">{{ bodyStyle | titlecase }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Price Range (from)</mat-label>
+    <mat-select>
+      <mat-option value="1">1</mat-option>
+      <mat-option value="2">2</mat-option>
+      <mat-option value="3">3</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+    <mat-form-field appearance="fill">
+    <mat-label>Price Range (to)</mat-label>
+    <mat-select>
+      <mat-option value="1">1</mat-option>
+      <mat-option value="2">2</mat-option>
+      <mat-option value="3">3</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
 </form>

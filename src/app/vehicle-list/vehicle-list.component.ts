@@ -13,7 +13,7 @@ export class VehicleListComponent implements OnInit {
   vehicles$?: Observable<IVehicle[]>;
 
   ngOnInit(): void {
-    this.vehicles$ = this.vehicleService.getVehicles$();
+    this.vehicles$ = this.vehicleService.getFilteredVehicles$();
   }
 
   trackByVehicleId(index: number, vehicle: IVehicle): string {
