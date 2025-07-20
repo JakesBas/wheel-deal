@@ -1,3 +1,9 @@
+<div
+  *ngIf="(vehicles$ | async)?.length as resultCount"
+  class="search-result">
+  Results: {{ resultCount }}
+</div>
+
 <ng-container *ngFor="let vehicle of vehicles$ | async; trackBy: trackByVehicleId">
   <app-vehicle-card [vehicle]="vehicle"></app-vehicle-card>
 </ng-container>
