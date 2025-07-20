@@ -1,17 +1,34 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
 
-import { AppComponent } from './app.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app'
 import { getFirestore, provideFirestore } from '@angular/fire/firestore'
 import { environment } from "@env/environment"
 
+import { AppComponent } from './app.component'
+import { VehicleSearchFilterComponent } from './vehicle-search-filter/vehicle-search-filter.component';
+import { VehicleListComponent } from './vehicle-list/vehicle-list.component'
+import { VehicleCardComponent } from './vehicle-list/vehicle-card/vehicle-card.component';
+import { CartComponent } from './cart/cart.component';
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    VehicleSearchFilterComponent,
+    VehicleListComponent,
+    VehicleCardComponent,
+    CartComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatCardModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => getFirestore())
   ],

@@ -1,3 +1,48 @@
-:root {
-  
+.grid {
+  background-color: blue;
+  height: calc(100% - var(--navbar-height));
+  padding: 5px;
+  margin: 0 var(--layout-margin-xl);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "header header header cart"
+    "filter list list cart";
+  gap: var(--layout-gap);
+
+  &__header {
+    background-color: beige;
+    grid-area: header;
+    padding: var(--layout-padding-lg) 0;
+  }
+
+  &__cart {
+    background-color: beige;
+    grid-area: cart;
+  }
+
+  &__filter {
+    background-color: beige;
+    grid-area: filter;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__list {
+    background-color: red;
+    grid-area: list;
+    overflow-y: auto;
+  }
+}
+
+.vehicle-search-filter {
+  background-color: aqua;
+  flex: 1;
+}
+
+.vehicle-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap-sm);
 }

@@ -1,0 +1,3 @@
+<ng-container *ngFor="let vehicle of vehicles$ | async; trackBy: trackByVehicleId">
+  <app-vehicle-card [vehicle]="vehicle"></app-vehicle-card>
+</ng-container>
