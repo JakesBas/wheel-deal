@@ -8,4 +8,4 @@ Run `npm run dev` to serve the application on `http://localhost:4200`. The appli
 Run `npm run build` to build the project. The build artifacts will be stored in the `dist/wheel-deal` directory.
 
 ## Firebase hosting
-Run `npm run deploy` to deploy the application to firebase hosting. Application can be accessed on `http://wheel-deal-cca90.web.app`.
+Run `npm run deploy` to deploy the application to firebase hosting. Application can be accessed at `http://wheel-deal-cca90.web.app`.
